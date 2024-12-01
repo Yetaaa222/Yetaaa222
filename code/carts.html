@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart-style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">LUYANDOGAM3S <span>ZN.</span></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <a href="shop.html">Shop</a>
+            <a href="cart.html" class="bx bx-cart"></a>
+            <a href="login.html" class="btn">Login</a>
+        </ul>              
+    </header>
+
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div class="cart-container">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="total-price">
+                <h3>Total: $<span id="total-price">0</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Get cart items from local storage
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Get HTML elements to update
+        const cartTableBody = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+
+        let totalPrice = 0;
+
+        // Function to render cart items
+        function renderCart() {
+            cartTableBody.innerHTML = ''; // Clear existing items
+            totalPrice = 0; // Reset total price
+
+            cartItems.forEach((item, index) => {
+                // Create a new row for each item
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price}</td>
+                    <td><button class="remove-from-cart" data-index="${index}">Remove</button></td>
+                `;
+                cartTableBody.appendChild(row);
+
+                // Add item price to total price
+                totalPrice += parseFloat(item.price);
+            });
+
+            // Update total price
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+
+            // Add event listeners to all remove buttons
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', removeFromCart);
+            });
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(event) {
+            const index = event.target.getAttribute('data-index');
+            cartItems.splice(index, 1); // Remove item from cart array
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Update local storage
+            renderCart(); // Re-render cart
+        }
+
+        // Initial render
+        renderCart();
+    </script>
+</body>
+</html>

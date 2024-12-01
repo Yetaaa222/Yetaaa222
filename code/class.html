@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style type="text/css" id="operaUserStyle"></style>
+  </head>
+  <body>
+    <doctype html="">
+      <title>JavaScript Demo</title>
+      <script type="text/javascript">
+        function calcSum() {
+          value1 = parseInt(document.mainForm.textBox1.value);
+          value2 = parseInt(document.mainForm.textBox2.value);
+          sum = value1 + value2;
+          document.mainForm.textBoxSum.value = "sum is" + sum;
+        }
+        function calcSum() {
+          value1 = parseInt(document.mainForm.textBox1.value);
+          value2 = parseInt(document.mainForm.textBox2.value);
+          sum = value1 + value2;
+          document.mainForm.textBoxSum.value = "sum is" + sum;
+        }
+      </script>
+
+      <form name="mainForm">
+        <input type="text" name="textBox1" /> <br />
+        <input type="text" name="textBox2" /> <br />
+        <input type="button" value="Process" onclick="javascript: calcSum()" />
+        <input type="text" name="textBoxSum" readonly="readonly" />
+      </form>
+      <form name="applicantdetails">
+        <input type="text" name="textBox1" /> <br />
+        <input type="text" name="textBox2" /> <br />
+        <input type="button" value="Process" onclick="javascript: calcSum()" />
+        <input type="text" name="textBoxSum" readonly="readonly" />
+      </form>
+    </doctype>
+    <style>
+        body{
+            width: 1024px;
+            padding: 512px;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            width: 512px;
+            height: 512px;
+            background-color: cyan;
+        }
+    </style>
+  </body>
+</html>

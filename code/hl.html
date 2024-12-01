@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry Lion Meal Order Form</title>
+    <img src="hungrylion.png" style="width: 300px; height: 100px;" >
+    
+    <style>
+        body {
+            font-family: Arial;
+            
+            background-color: #D82028;
+            
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["orderForm"]["name"].value;
+            var email = document.forms["orderForm"]["email"].value;
+            var address = document.forms["orderForm"]["address"].value;
+            var date = document.forms["orderForm"]["deliveryDate"].value;
+            var time = document.forms["orderForm"]["deliveryTime"].value;
+
+            if (name == "" || email == "" || address == "" || date == "" || time == "") {
+                alert("Please fill out all required fields.");
+                return false;
+            }
+
+            // Email validation
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Confirm before submission
+            return confirm("Do you want to submit the order?");
+        }
+    </script>
+</head>
+<body>
+
+    <h1 style="text-align:center;">Hungry Lion Meal Order Form</h1>
+
+    <form name="orderForm" onsubmit="return validateForm()" action="submit_order.html" method="post">
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Meal Selection -->
+        <fieldset>
+            <legend>Meal Selection</legend>
+            <div>
+                <label>Choose your meal:</label>
+                 <input type="radio" id="big boss burger" name="meal" value="big boss burger" required>
+               
+                <label for="burger">big boss burger</label>
+                <input type="radio" id="Bigbite" name="meal" value="Bigbite">
+                <label for="pizza">Bigbite</label>
+                <input type="radio" id="wings" name="meal" value="wings">
+                <label for="chicken">wings</label>
+            </div>
+            <div>
+                <label for="sides">Choose your sides:</label>
+                <select id="sides" name="sides" required>
+                    <option value="Fries">Fries</option>
+                    
+                    <option value="mash">Mash</option>
+                    <option value="Coleslaw">Coleslaw</option>
+                </select>
+            </div>
+            <div>
+                <label>Extras:</label>
+                  <label for="extraBacon">Extra fries</label>
+                <input type="checkbox" id="extraFries" name="extras" value="Extra fries">
+              <label for="extraSauce">Extra Chicken</label>
+                <input type="checkbox" id="extraChicken" name="extras" value="Extra Chicken">
+                
+            </div>
+        </fieldset>
+
+        <!-- Delivery Details -->
+        <fieldset>
+            <legend>Delivery Details</legend>
+            <div>
+                <label for="deliveryDate">Preferred Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+            </div>
+            <div>
+                <label for="deliveryTime">Preferred Delivery Time:</label>
+                <input type="time" id="deliveryTime" name="deliveryTime" required>
+            </div>
+        </fieldset>
+
+        <!-- Payment and Submission -->
+        <fieldset>
+            <legend>Payment and Submission</legend>
+            <div>
+                <label for="paymentMethod">Choose a payment method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Moneymobile">Mobile Money</option>
+                </select>
+            </div>
+            <div>
+                <label for="orderNote">Additional Notes:</label>
+                <textarea id="orderNote" name="orderNote" rows="3"></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit Order</button>
+                <button type="reset">Reset Form</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="https://www.hungrylion.co.za/" target="_blank">
+            <img src="https://www.hungrylion.co.za/wp-content/uploads/2019/04/Hungry-Lion-Logo.png" alt="Hungry Lion Logo">
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="cart.css" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  </head>
+
+<body>
+    <header class="sticky">
+        <img src="logo.png"  style="width: 100px; height: 80px"  alt="Company Logo"/>
+        <ul class="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html" >Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="account.html">Account</a></li>
+        </ul>
+        <div class="icons">
+          <a href="cart.html" class="bx bx-cart"></a>
+          <div class="bx bx-menu" id="menu-icon"></div>
+      </header>
+
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div class="cart-container">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <div class="total-price">
+                <h3>Total: K<span id="total-price">0.00</span></h3> <!-- Start with 0.00 -->
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+       
+    </section>
+
+    <footer>
+        <p>&copy; 2024 All Rights Reserved By Mutumwenu Yeta</p>
+    </footer>
+
+    
+    <script>
+      
+      let cartItems = JSON.parse(localStorage.getItem('cart')) || []; 
+  
+   
+      const cartTableBody = document.getElementById('cart-items');
+      const totalPriceElement = document.getElementById('total-price');
+      
+    
+      let totalPrice = 0;
+  
+ 
+      function renderCart() {
+          cartTableBody.innerHTML = ''; 
+          totalPrice = 0; 
+          console.log('Cart Items:', cartItems);
+  
+         
+          cartItems.forEach((item, index) => {
+             
+              console.log(`Item ${index}:`, item);
+  
+             
+              if (item.price && item.name) {
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${item.name}</td>  <!-- Display item name -->
+                      <td>${item.price}</td> <!-- Display item price -->
+                      <td><button class="remove-from-cart" data-index="${index}">Remove</button></td>
+                  `;
+                  cartTableBody.appendChild(row); 
+  
+                  totalPrice += parseFloat(item.price);  
+              } else {
+                  console.error('Item is missing price or name:', item);
+              }
+          });
+  
+        
+          console.log('Total Price:', totalPrice);
+  
+          
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+  
+         
+          document.querySelectorAll('.remove-from-cart').forEach(button => {
+              button.addEventListener('click', removeFromCart);
+          });
+      }
+  
+   
+      function removeFromCart(event) {
+          const index = event.target.getAttribute('data-index');
+          cartItems.splice(index, 1); // Remove the item from the cart array
+          localStorage.setItem('cart', JSON.stringify(cartItems)); // Update the localStorage
+          renderCart(); // Re-render the cart after removal
+      }
+  
+      // Call the renderCart function to initialize the cart display
+      renderCart();
+  </script>
+  
+    
+    <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const navbar = document.querySelector(".navbar");
+
+        menuIcon.onclick = function () {
+          menuIcon.classList.toggle("bx-x");
+          navbar.classList.toggle("open");
+        };
+        window.onscroll = () => {
+          menuIcon.classList.remove("bx-x");
+          navbar.classList.remove("open");
+        };
+
+        // ScrollReveal for animations (if needed)
+        const sr = ScrollReveal({
+          distance: "60px",
+          duration: 2500,
+          delay: 400,
+          reset: true,
+        });
+
+        sr.reveal(".home-text", { delay: 200, origin: "top" });
+    </script>
+</body>
+</html>

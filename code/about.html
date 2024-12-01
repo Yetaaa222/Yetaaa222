@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="about.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <header class="sticky">
+        <img src="logo.png" style="width: 100px; height: 80px" alt="Company Logo" />
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html">Account</a></li>
+        </ul>
+        <div class="icons">
+         
+        <a href="cart.html" class="bx bx-cart"></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="home-text">
+            <h4>Welcome To Yeta Innovative</h4>
+            <h1>Find Phones and accessories for everyone!</h1>
+            <a href="shop.html" class="btn">Explore</a>
+        </div>
+        <div class="home-img">
+            <img src="pngwing.com.png" />
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>Welcome to Yeta Innovative, your ultimate destination for the latest and greatest iPhones! We are passionate about providing our customers with the best in Apple technology, offering a wide selection of iPhone models that cater to every need and lifestyle.</p>
+        <p>At Yeta Innovative, we believe in the power of innovation. That's why we only stock iPhones, ensuring you get the most cutting-edge features, unparalleled design, and seamless user experience that Apple is known for. Whether you're looking for the latest iPhone model or a more budget-friendly option, we've got you covered.</p>
+        <h3>Why Choose Us?</h3>
+        <ul>
+            <li><strong>Premium Quality:</strong> All our iPhones are 100% genuine and come with a full warranty, so you can shop with confidence.</li>
+            <li><strong>Expert Support:</strong> Our team of Apple enthusiasts is here to help you choose the perfect iPhone and provide support every step of the way.</li>
+            <li><strong>Fast Shipping:</strong> We know you can't wait to get your hands on your new iPhone, so we offer fast, reliable shipping options.</li>
+        </ul>
+        <h3>Our Mission</h3>
+        <p>Our mission is simple: to bring the best of Apple's innovation to you. We are committed to offering top-tier products at competitive prices, backed by exceptional customer service. We’re not just selling iPhones; we’re helping you stay connected, be productive, and enjoy the best that technology has to offer.</p>
+        <h3>Join Our Community</h3>
+        <p>Join the Yeta Innovative community and stay ahead of the curve with the latest iPhone releases, exclusive offers, and insider tips. We’re more than just a store—we’re your trusted partner in tech.</p>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+          <div></div>
+            <div class="contact-content">
+                <h5>About Us</h5>
+                <li><a href="about.html">About us</a></li>`
+                <li><a href="#">+260 966220051</a></li>
+                <li><a href="#">myeta2004@gmail.com</a></li>
+                <li><a href="#">Lusaka Zambia</a></li>
+            </div>
+
+            <div class="contact-content">
+                <h5>Social media</h5>
+                <a href="https://twitter.com/yourprofile" target="_blank">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://facebook.com/yourprofile" target="_blank">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://instagram.com/yourprofile" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a> 
+            </div>
+        </div>
+    </section>
+
+    <div class="end-text">
+        <p>&copy; 2024 All Rights Reserved By Mutumwenu Yeta</p>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const navbar = document.querySelector(".navbar");
+
+        menuIcon.onclick = function () {
+            menuIcon.classList.toggle("bx-x");
+            navbar.classList.toggle("open");
+        };
+
+        window.onscroll = () => {
+            menuIcon.classList.remove("bx-x");
+            navbar.classList.remove("open");
+        };
+
+        const sr = ScrollReveal({
+            distance: "60px",
+            duration: 2500,
+            delay: 400,
+            reset: true,
+        });
+
+        sr.reveal(".home-text", { delay: 200, origin: "top" });
+    </script>
+</body>
+</html>

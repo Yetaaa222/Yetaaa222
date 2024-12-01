@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yeta Innovative</title>
+    <link rel="stylesheet" type="text/css" href="checkout.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+    <header class="sticky">
+        <img src="logo.png" style="width: 100px; height: 80px" />
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html">Account</a></li>
+        </ul>
+        <div class="icons">
+            <a href="cart.html" class="bx bx-cart"></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    
+       <!-- Container for Checkout Page -->
+    <div class="container">
+        <section class="checkout">
+            <h2>Checkout</h2>
+
+            <!-- Checkout Items Section -->
+            <div class="checkout-items">
+                <table id="checkout-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="checkout-items">
+                        <!-- Items will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total Price -->
+            <div class="total-price">
+                <h3>Total: K<span id="total-amount">0</span></h3>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-group">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="mobile-money">Mobile Money</option>
+                </select>
+            </div>
+
+            <button type="submit" class="checkout-btn">Complete Checkout</button>
+            <button type="button" class="print-btn">Print Receipt</button>
+        </section>
+
+
+
+    <section class="contact">
+        <div class="main-contact">
+          <div></div>  
+          <div class="contact-content">
+            <h5>About Us</h5>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </div>
+  
+          <div class="contact-content">
+            <h5>Reach us on.</h5>
+            <li><a href="#">+260 966163997</a></li>
+            <li><a href="#">+260 966220051</a></li>
+            <li><a href="#">myeta2004@gmail.com</a></li>
+            <li><a href="#">Lusaka Zambia</a></li>
+          </div>
+  
+          <div class="contact-content">
+            <h5>Social media</h5>
+            <a href="https://twitter.com/yourprofile" target="_blank">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://facebook.com/yourprofile" target="_blank">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+  
+    <footer>
+        <p>&copy; 2024 All Rights Reserved By Mutumwenu Yeta</p>
+    </footer>
+
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const navbar = document.querySelector(".navbar");
+    
+        menuIcon.onclick = function () {
+            menuIcon.classList.toggle("bx-x");
+            navbar.classList.toggle("open");
+        };
+    
+        window.onscroll = () => {
+            menuIcon.classList.remove("bx-x");
+            navbar.classList.remove("open");
+        };
+    
+        // Fetch items from local storage
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    
+        // Get HTML elements for checkout
+        const checkoutTableBody = document.getElementById('checkout-items');
+        const totalAmountElement = document.getElementById('total-amount');
+    
+        let totalAmount = 0;
+    
+        // Function to display items and calculate total
+        function displayCheckoutItems() {
+            checkoutTableBody.innerHTML = ''; // Clear the table body
+            totalAmount = 0; // Reset the total
+    
+            // Loop through cart items and display them
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>K${item.price}</td>
+                `;
+                checkoutTableBody.appendChild(row);
+    
+                // Calculate total price
+                totalAmount += parseFloat(item.price);
+            });
+    
+            // Display total price
+            totalAmountElement.textContent = totalAmount.toFixed(2);
+        }
+    
+        // Initial call to display items when the page loads
+        displayCheckoutItems();
+    
+        // Checkout button functionality
+        document.querySelector('.checkout-btn').onclick = function(event) {
+            const paymentMethod = document.getElementById('payment-method').value;
+    
+            if (!paymentMethod) {
+                alert('Please select a payment method.');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+    
+            // Get user's name from local storage
+            const userName = localStorage.getItem('firstName') || 'Customer';
+    
+            // Generate receipt
+            let receipt = `Receipt for ${userName}:\n\n`; // Include user's name
+            cartItems.forEach(item => {
+                receipt += `${item.name} - K${item.price}\n`;
+            });
+            receipt += `\nTotal: K${totalAmount.toFixed(2)}`;
+            alert(`Thank you for your purchase! You have selected ${paymentMethod}.\n\n${receipt}`);
+        };
+    
+        // Print button functionality
+        document.querySelector('.print-btn').onclick = function() {
+            const printWindow = window.open('', '', 'height=600,width=800');
+            let printContent = `<h2>Receipt for ${localStorage.getItem('firstName') || 'Customer'}</h2><table><thead><tr><th>Item</th><th>Price</th></tr></thead><tbody>`;
+    
+            cartItems.forEach(item => {
+                printContent += `<tr><td>${item.name}</td><td>K${item.price}</td></tr>`;
+            });
+    
+            printContent += `</tbody></table><h3>Total: K${totalAmount.toFixed(2)}</h3>`;
+            printContent += '<button onclick="window.print()">Print this receipt</button>';
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            printWindow.focus();
+        };
+    </script>
+    
+</body>
+</html>

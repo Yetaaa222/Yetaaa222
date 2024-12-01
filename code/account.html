@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yeta Innovative</title>
+    <link rel="stylesheet" type="text/css" href="account.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+</head>
+<body>
+    <header class="sticky">
+        <img src="logo.png" style="width: 100px; height: 80px" />
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html" class="active">Account</a></li>
+        </ul>
+        <div class="icons">
+            
+             <a href="cart.html" class="bx bx-cart"></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <section class="login-signup-container">
+        <div class="form-container">
+            <h2>Login / Sign Up</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required />
+                    <button   type="button" class="toggle-eye" id="toggle-eye">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <input  type="submit" value="login" />
+                <a href="#">Forgot Password?</a>
+                <a href="sign.html">Sign Up</a>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+          <div></div>
+          <div class="contact-content">
+            <h5>About Us</h5>
+            <ul>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+  
+          <div class="contact-content">
+            <h5>Reach us on</h5>
+            <ul>
+              <li><a href="#">+260 966163997</a></li>
+              <li><a href="#">+260 966220051</a></li>
+              <li><a href="#">myeta2004@gmail.com</a></li>
+              <li><a href="#">Lusaka, Zambia</a></li>
+            </ul>
+          </div>
+  
+          <div class="contact-content">
+            <h5>Social media</h5>
+            <ul>
+              <li>
+                <a href="https://twitter.com/yourprofile" target="_blank"
+                  ><i class="fab fa-twitter"></i> Twitter</a
+                >
+              </li>
+              <li>
+                <a href="https://facebook.com/yourprofile" target="_blank"
+                  ><i class="fab fa-facebook-f"></i> Facebook</a
+                >
+              </li>
+              <li>
+                <a href="https://instagram.com/yourprofile" target="_blank"
+                  ><i class="fab fa-instagram"></i> Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    <div class="end-text">
+        <p>&copy; 2024 All Rights Reserved By Mutumwenu Yeta</p>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const navbar = document.querySelector(".navbar");
+
+        menuIcon.onclick = function () {
+            menuIcon.classList.toggle("bx-x");
+            navbar.classList.toggle("open");
+        };
+        window.onscroll = () => {
+            menuIcon.classList.remove("bx-x");
+            navbar.classList.remove("open");
+        };
+
+        const toggleEye = document.getElementById("toggle-eye");
+        const passwordField = document.getElementById("password");
+        let eyeOpen = false;
+
+        toggleEye.onclick = function () {
+            eyeOpen = !eyeOpen;
+            if (eyeOpen) {
+                passwordField.setAttribute("type", "text");
+                toggleEye.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordField.setAttribute("type", "password");
+                toggleEye.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        };
+    </script>
+</body>
+</html>

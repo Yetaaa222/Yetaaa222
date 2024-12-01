@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        th, td {
+            border: 1px solid rgb(0, 0, 0);
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(99, 102, 102);
+        }
+        .category {
+            background-color: rgb(99, 102, 102);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Product Table</h1>
+
+    <table>
+        <!-- Header Row -->
+        <tr>
+            <th>Category</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Discount</th>
+        </tr>
+
+        <!-- Liquor Category -->
+        <tr>
+            <td class="category" rowspan="6">Liquor</td>
+            <td>Whiskey</td>
+            <td>K1000</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Vodka</td>
+            <td>K550</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>Rum</td>
+            <td>K1225</td>
+            <td>15%</td>
+        </tr>
+        <tr>
+            <td>Gin</td>
+            <td>K550</td>
+            <td>12%</td>
+        </tr>
+        <tr>
+            <td>Lagar</td>
+            <td>K30</td>
+            <td>8%</td>
+        </tr>
+        <tr>
+            <td>Brandy</td>
+            <td>K600</td>
+            <td>20%</td>
+        </tr>
+
+        <!-- Vegetables Category -->
+        <tr>
+            <td class="category" rowspan="6">Vegetables</td>
+            <td>Carrots</td>
+            <td>K25</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>Tomatoes</td>
+            <td>23</td>
+            <td>7%</td>
+        </tr>
+        <tr>
+            <td>Spinach</td>
+            <td>K8</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Onions</td>
+            <td>K4</td>
+            <td>4%</td>
+        </tr>
+        <tr>
+            <td>Potatoes</td>
+            <td>K2</td>
+            <td>8%</td>
+        </tr>
+        <tr>
+            <td>Cabbage</td>
+            <td>K4</td>
+            <td>6%</td>
+        </tr>
+
+        <!-- Foods Category -->
+        <tr>
+            <td class="category" rowspan="6">Foods</td>
+            <td>Beef</td>
+            <td>k150 p/kg</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>Chicken</td>
+            <td>k100</td>
+            <td>7%</td>
+        </tr>
+        <tr>
+            <td>Fish</td>
+            <td>k120</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Pork</td>
+            <td>k90</td>
+            <td>6%</td>
+        </tr>
+        <tr>
+            <td>Kapenta</td>
+            <td>k55</td>
+            <td>12%</td>
+        </tr>
+        <tr>
+            <td>Sausages</td>
+            <td>k20</td>
+            <td>8%</td>
+        </tr>
+    </table>
+
+</body>
+</html>
