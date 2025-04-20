@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Yetaaa222
-- 👀 I’m interested in programming and network systems
-- 🌱 I’m currently learning web development systems analysis
+- 👀 I’m interested in programming and nCyber Security
+- 🌱 I’m currently learning web development and systems analysis
 - 📫 How to reach me myeta2004@gmail.com
 - 😄 Pronouns: he/him
 
