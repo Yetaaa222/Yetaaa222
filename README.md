@@ -1,8 +1,9 @@
 - 👋 Hi, I’m @Yetaaa222
-- 👀 I’m interested in programming and nCyber Security
-- 🌱 I’m currently learning web development and systems analysis
+- 👀 I’m interested in programming and Cyber Security
+- 🐧 Arch Linux enthusiast | btw i use arch
 - 📫 How to reach me myeta2004@gmail.com
-- 😄 Pronouns: he/him
+- ⚙️ Always learning, always tinkering
+
 
 <!---
 Yetaaa222/Yetaaa222 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
