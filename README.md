@@ -26,11 +26,7 @@
   <img src="https://img.shields.io/badge/Nmap-4682B4?style=flat-square" />
 </p>
 
-## 🚀 Things I've built
-| Project | What it does |
-|---|---|
-| [Project name](link) | One-line description |
-| [Project name](link) | One-line description |
+
 
 ## 📊 GitHub stats
 <img height="150" src="https://github-readme-stats.vercel.app/api?username=Yetaaa222&show_icons=true&theme=tokyonight" />
