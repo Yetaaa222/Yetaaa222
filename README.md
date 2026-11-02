@@ -33,6 +33,6 @@
 <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yetaaa222&layout=compact&theme=tokyonight" />
 
 ## 📫 Find me
-[🌐 Portfolio](https://mutumwenu.shop) · [💼 LinkedIn](#) · [🐙 GitHub](https://github.com/Yetaaa222)
+[🌐 Portfolio](https://yeta-portfolio.vercel.app/) · [💼 LinkedIn](#) · [🐙 GitHub](https://github.com/Yetaaa222)
 
 > "It works on my machine" is not a deployment strategy.
